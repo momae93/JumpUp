@@ -2,25 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-
+public class RedAI : MonoBehaviour {
     Animator anim;
     public float moveSpeed = 3f;
     public float jumpHeight = 100f;
+    GameObject red;
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         anim = GetComponent<Animator>();
+        red = GetComponent<GameObject>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         Movement();
         {
             float move = Input.GetAxis("Horizontal");
-            anim.SetFloat("Speed", move);
 
         }
     }
@@ -31,24 +33,20 @@ public class PlayerController : MonoBehaviour {
     /// Need to be optimize
     void Movement()
     {
-        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
+        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+
+        if (GameObject.FindGameObjectWithTag("red").transform.position.x > 9)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
-            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            anim.SetBool("Left", true);
+           
             Debug.Log("Going left");
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (GameObject.FindGameObjectWithTag("red").transform.position.x < -9)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
-            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            anim.SetBool("Left", false);
             Debug.Log("Going right");
         }
-        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Space))
-        {
+        if (GameObject.FindGameObjectWithTag("red").transform.position.y < (GameObject.FindGameObjectWithTag("Player").transform.position.y + 4))
             transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
-            Debug.Log("Going up");
-        }
     }
 }
