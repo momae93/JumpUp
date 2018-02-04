@@ -25,17 +25,14 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Q))
         {
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
-            Debug.Log("Going left");
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            Debug.Log("Going right");
         }
         if (Input.GetKey(KeyCode.Z))
         {
             transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
-            Debug.Log("Going up");
         }
     }
 }
