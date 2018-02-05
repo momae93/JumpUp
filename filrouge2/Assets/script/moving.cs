@@ -7,7 +7,6 @@ public class moving : MonoBehaviour {
     public float moveSpeed = 3f;
     public float jumpHeight = 10f;
 
-
     // Use this for initialization
     void Start()
     { }

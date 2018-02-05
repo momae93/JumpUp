@@ -14,7 +14,7 @@ public class RedAI : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         red = GetComponent<GameObject>();
-
+       // Destroy(this.gameObject, 2);
     }
 
     // Update is called once per frame
