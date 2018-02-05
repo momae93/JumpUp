@@ -33,10 +33,12 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
         {
+
             transform.localRotation = Quaternion.Euler(0, 180, 0);
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
             anim.SetBool("Left", true);
             Debug.Log("Going left");
+
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -48,7 +50,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Space))
         {
             transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
-            Debug.Log("Going up");
         }
     }
 }
