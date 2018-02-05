@@ -19,8 +19,9 @@ public class moving : MonoBehaviour {
 			anim.SetFloat ("Speed", move);
        
 		}
-		
-	}
+        
+
+    }
 
 	void Movement()
 	{
