@@ -4,37 +4,31 @@ using UnityEngine;
 
 public class moving : MonoBehaviour {
 
-	Animator anim;
-	// Use this for initialization
-	void Start () {
-		anim = GetComponent<Animator> ();
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		Movement ();
-		{
-			float move = Input.GetAxis ("Horizontal");
-			anim.SetFloat ("Speed", move);
-       
-		}
-		
-	}
+    public float moveSpeed = 3f;
+    public float jumpHeight = 10f;
 
-	void Movement()
-	{
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			transform.localRotation = Quaternion.Euler(0,180,0);
-			transform.Translate (Vector2.right * 3f * Time.deltaTime);
-            anim.SetBool("Left", true);
 
-        }
-		else if (Input.GetKey (KeyCode.RightArrow)) {
-			transform.localRotation = Quaternion.Euler(0,0,0);
-			transform.Translate (Vector2.right * 3f * Time.deltaTime);
-            anim.SetBool("Left", false);
+    // Use this for initialization
+    void Start()
+    { }
 
-        }
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        Movement();
+    }
+
+    /// <summary>
+    /// Function that determines the moves of the player
+    /// </summary>
+    /// Need to be optimize
+    void Movement()
+    {
+        if (Input.GetKey(KeyCode.Q))
+            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.D))
+            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.Z))
+            transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
+    }
 }
