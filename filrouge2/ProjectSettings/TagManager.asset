@@ -8,6 +8,8 @@ TagManager:
   - FirstPlatform
   - blue
   - red
+  - FirePoint
+  - Wave
   layers:
   - Default
   - TransparentFX

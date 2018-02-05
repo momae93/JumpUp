@@ -5,6 +5,7 @@ using UnityEngine;
 public class RedShoot : MonoBehaviour {
 
     private Transform target;
+    private Transform firepoint;
     public float fireRate = 0;
 
     public Rigidbody projectile;
@@ -14,13 +15,14 @@ public class RedShoot : MonoBehaviour {
     private float counter = 1;
     public float power;
 
-    public GameObject arrow;
  
 
     // Use this for initialization
     void Start () {
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         target = go.transform;
+        go = GameObject.FindGameObjectWithTag("FirePoint");
+        firepoint = go.transform;
     }
 
     void Update()
@@ -37,17 +39,6 @@ public class RedShoot : MonoBehaviour {
     {
         if (this.gameObject.transform.position.y <= (target.transform.position.y + 1) || this.gameObject.transform.position.y <= (target.transform.position.y))
         {
-         /*  if (this.gameObject.transform.position.x > 9)
-            {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
-
-                Debug.Log("Poop");
-            }
-            if (this.gameObject.transform.position.x < -9)
-            {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
-                Debug.Log("Caca");
-            }*/
             counter += Time.deltaTime;
             if (counter > 1)
             {
