@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+
     /// <summary>
     /// Function that determines the moves of the player
     /// </summary>
