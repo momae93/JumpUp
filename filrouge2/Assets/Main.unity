@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &125162746
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &904673821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1127453489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1002,7 +1002,6 @@ MonoBehaviour:
   - {fileID: 497023137}
   - {fileID: 982914774}
   player: {fileID: 1527749732}
-  boardSize: 10
 --- !u!1 &1298485979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2003910480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1613,5 +1612,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a271cfe83985a419455c8df56e0e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1127453488}
+  player: {fileID: 1527749732}
   speed: 1
