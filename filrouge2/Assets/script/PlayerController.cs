@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     public float moveSpeed = 3f;
     public float jumpHeight = 100f;
+    public bool alive = true;
     private float playerScore;
-    public Text score;
+    private Text score;
 
 
     // Use this for initialization
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour {
     /// Function that determines the moves of the player
     /// </summary>
     /// Need to be optimize
-    void Movement()
+   void Movement()
     {
         if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
         {

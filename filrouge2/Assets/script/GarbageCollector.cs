@@ -6,6 +6,13 @@ public class GarbageCollector : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject, 0);
+        if (other.gameObject.tag == "Player")
+        {
+            GameObject player = GameObject.Find("Player (1)");
+            PlayerController life = player.GetComponent<PlayerController>();
+            life.alive = false;
+        }
+        else
+            Destroy(other.gameObject, 0);
     }
 }
