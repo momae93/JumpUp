@@ -767,7 +767,6 @@ GameObject:
   - component: {fileID: 1127453495}
   - component: {fileID: 1127453494}
   - component: {fileID: 1127453493}
-  - component: {fileID: 1127453492}
   - component: {fileID: 1127453491}
   - component: {fileID: 1127453490}
   - component: {fileID: 1127453489}
@@ -819,20 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpHeight: 10
-  score: {fileID: 0}
---- !u!114 &1127453492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1127453488}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977b2e55c0e17ce40b99962fadb3d643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpHeight: 10
+  alive: 1
 --- !u!212 &1127453493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -901,7 +887,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1127453488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.82, y: -2.76, z: -2}
+  m_LocalPosition: {x: -6.82, y: -2.76, z: -0.2}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 1348930022}
@@ -1368,7 +1354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpHeight: 10
-  score: {fileID: 0}
+  alive: 1
 --- !u!54 &1527749738
 Rigidbody:
   m_ObjectHideFlags: 0

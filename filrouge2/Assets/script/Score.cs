@@ -17,7 +17,7 @@ public class Score : MonoBehaviour {
             difficulty += 1;
             GameObject water = GameObject.Find("Water");
             WavesController wave = water.GetComponent<WavesController>();
-            wave.WaveSpeed += 1;
+           // wave.WaveSpeed += 1;
         }
     }
 
