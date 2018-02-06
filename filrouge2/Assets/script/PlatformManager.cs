@@ -11,13 +11,13 @@ public class PlatformManager : MonoBehaviour {
     private float platformHeight = 2.0f;
     private int platformOnScreen = 4;
     private Transform playerTransform;
-    public int boardSize;
 
-    private GameObject last;
+    private GameObject lastPlatform;
 
 
 	void Start () {
         playerTransform = player.transform;
+		Spawn (Random.Range(-6,6), spawnY);
         for (int i = 0; i < platformOnScreen; i++)
             SpawnPlatForm();
 	}
@@ -30,36 +30,22 @@ public class PlatformManager : MonoBehaviour {
 
     private void SpawnPlatForm()
     {
-        if (last == null)
-        {
-            GameObject newPlatform;
-            newPlatform = Instantiate(BasicPlatforms[Random.Range(0, 2)]) as GameObject;
-            newPlatform.transform.position = new Vector3(Random.Range(-6, 6), spawnY, 0);
-            last = newPlatform;
-        }
-        else
-        { 
-            GameObject newPlatform;
-            newPlatform = Instantiate(BasicPlatforms[Random.Range(0, 2)]) as GameObject;
-            float add = newPlatform.transform.localScale.x / 2;
-            if (last.transform.position.x - last.transform.localScale.x / 2 + 10 < 3f)
-            {
-                newPlatform.transform.position = new Vector3(last.transform.position.x + last.transform.localScale.x / 2 + 2f, spawnY, 0);
-            }
-            if (10 - (last.transform.position.x + last.transform.localScale.x / 2) < 3f)
-                newPlatform.transform.position = new Vector3(last.transform.position.x - last.transform.localScale.x / 2 - 2f, spawnY, 0);
-            else
-            {
-                float[] tab = new float[] {
-                    last.transform.position.x + last.transform.localScale.x / 2 + 1f,
-                    last.transform.position.x - last.transform.localScale.x / 2 - 1f };
-                newPlatform.transform.position = new Vector3(tab[Random.Range(0,1)], spawnY, 0);
-            }
-            last = newPlatform;
-        }
-
-        spawnY += 2f;
-
+		float leftPos = lastPlatform.transform.position.x - lastPlatform.transform.localScale.x / 2;
+		float rightPos = lastPlatform.transform.position.x + lastPlatform.transform.localScale.x / 2;
+		float[] tab = new float[] {	rightPos + 2f,	leftPos - 2f };
+		if (leftPos + 10 < 3f && 10 - (rightPos) < 3f)
+			Spawn(tab[Random.Range(0,1)], spawnY);
+		else if (leftPos + 10 < 3f)
+			Spawn(tab[0], spawnY);
+		else
+			Spawn(tab[1], spawnY);
     }
 
+	private void Spawn(float x, float y, float z = 0)
+	{
+		GameObject newPlatform = Instantiate(BasicPlatforms[Random.Range(0, 2)]) as GameObject;
+		newPlatform.transform.position = new Vector3(x, y, z);
+		lastPlatform = newPlatform;
+		spawnY += 2f;
+	}
 }
