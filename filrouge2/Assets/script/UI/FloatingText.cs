@@ -7,18 +7,23 @@ public class FloatingText : MonoBehaviour {
 
     // Use this for initialization
     public Animator animator;
-    private Text damageText;
+    private Text levelText;
 
     void OnEnable()
+    {
+        Animate(animator);
+    }
+
+    private void Animate(Animator animator)
     {
         AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
         Debug.Log(clipInfo.Length);
         Destroy(gameObject, clipInfo[0].clip.length);
-        damageText = animator.GetComponent<Text>();
+        levelText = animator.GetComponent<Text>();
     }
 
     public void SetText(string text)
     {
-        damageText.text = text;
+        levelText.text = text;
     }
 }
