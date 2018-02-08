@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour {
     public float waveSpeed;
     public GameObject player;
     public float scoreMax;
-	// Use this for initialization
-	void Start () {
+
+    private int modulo = 10;
+    // Use this for initialization
+    void Start () {
         score = 0;
-        level = 0;
+        level = 0;  
         waveSpeed = 2f;
         bearings = new float[] {75, 175, 300, 500 };
 	}
@@ -38,6 +40,8 @@ public class GameManager : MonoBehaviour {
         {
             level += 1;
             Debug.Log("Difficulty up :" + level);
+            FloatingTextController.Initialize();
+            FloatingTextController.CreateFloatingText("Level :" + level);
         }
     }
 }
