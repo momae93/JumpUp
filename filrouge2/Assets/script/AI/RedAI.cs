@@ -50,8 +50,6 @@ public class RedAI : MonoBehaviour {
              transform.localRotation = Quaternion.Euler(0, 0, 0);
              Debug.Log("Going right");
          }
-        // if (GameObject.FindGameObjectWithTag("red").transform.position.y < (GameObject.FindGameObjectWithTag("Player").transform.position.y ))
-        //   transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
         if (this.gameObject.transform.position.y <= (target.transform.position.y + 1)  || this.gameObject.transform.position.y <= (target.transform.position.y))
             anim.SetBool("attack", true);
         else

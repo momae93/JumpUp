@@ -7,13 +7,15 @@ public class BlueAI : MonoBehaviour {
     public float moveSpeed = 3f;
     public float jumpHeight = 100f;
     GameObject red;
-
+    public Transform target;
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
         red = GetComponent<GameObject>();
+        GameObject go = GameObject.FindGameObjectWithTag("Player");
+        target = go.transform;
 
     }
 
@@ -48,7 +50,11 @@ public class BlueAI : MonoBehaviour {
            
             Debug.Log("Going right");
         }
-        if (GameObject.FindGameObjectWithTag("blue").transform.position.y < (GameObject.FindGameObjectWithTag("Player").transform.position.y + 4))
+        if (GameObject.FindGameObjectWithTag("blue").transform.position.y < (target.position.y + 4))
             transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
+        if (this.gameObject.transform.position.y <= (target.position.y + 1) || this.gameObject.transform.position.y <= (target.position.y))
+            anim.SetBool("attack", true);
+        else
+            anim.SetBool("attack", false);
     }
 }
