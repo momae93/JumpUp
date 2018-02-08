@@ -13,7 +13,6 @@ public class PlatformManager : MonoBehaviour {
     private Transform playerTransform;
     private GameObject lastPlatform;
 
-
 	void Start () {
         playerTransform = player.transform;
 		Spawn (Random.Range(-10,10), spawnY);
@@ -43,16 +42,17 @@ public class PlatformManager : MonoBehaviour {
 	{
 		GameObject newPlatform = Instantiate(BasicPlatforms[Random.Range(0, 2)]) as GameObject;
 		if (Random.Range (0, 2) == 1)
-			SetMovingBehavior (ref newPlatform);
+			SetMovingBehavior (ref newPlatform, 5);
 		newPlatform.transform.position = new Vector3(x, y, z);
 		lastPlatform = newPlatform;
 		spawnY += 2f;
 	}
 
-	private void SetMovingBehavior(ref GameObject gameObject)
+	private void SetMovingBehavior(ref GameObject gameObject, int border, int speed = 2)
 	{
-		gameObject.AddComponent<GameObjectMove> ();
-		gameObject.GetComponent<GameObjectMove> ().leftLimit = -5;
-		gameObject.GetComponent<GameObjectMove> ().rightLimit = 5;
-	}
+		gameObject.AddComponent<GameObjectMove>();
+		gameObject.GetComponent<GameObjectMove>().leftLimit = - border;
+		gameObject.GetComponent<GameObjectMove>().rightLimit = border;
+        gameObject.GetComponent<GameObjectMove>().speed = speed;
+    }
 }
