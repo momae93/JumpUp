@@ -7,10 +7,8 @@ public class DestroyPlayer : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-
             GameObject player = GameObject.Find("Player (1)");
             PlayerController life = player.GetComponent<PlayerController>();
-            life.alive = false;
         }
         else
             Destroy(this.gameObject);

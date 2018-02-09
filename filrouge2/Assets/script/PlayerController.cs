@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
@@ -8,10 +6,9 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     public float moveSpeed = 3f;
     public float jumpHeight = 40f;
-    public bool alive = true;
+    private bool isAlive = true;
     private float playerScore;
     private Text score;
-
 
     // Use this for initialization
     void Start () {
@@ -26,11 +23,8 @@ public class PlayerController : MonoBehaviour {
         {
             float move = Input.GetAxis("Horizontal");
             anim.SetFloat("Speed", move);
-
         }
     }
-
-
     /// <summary>
     /// Function that determines the moves of the player
     /// </summary>
@@ -42,27 +36,21 @@ public class PlayerController : MonoBehaviour {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
             anim.SetBool("Left", true);
-            Debug.Log("Going left");
-
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
             anim.SetBool("Left", false);
-            Debug.Log("Going right");
         }
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Space))
-        {
             transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
-        }
-
     }
 
 
     void setScore()
     {
-            playerScore += 1;
-            score.text += "Score: " + playerScore.ToString();  
+        playerScore += 1;
+        score.text += "Score: " + playerScore.ToString();  
     }
 }

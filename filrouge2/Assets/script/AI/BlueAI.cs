@@ -18,18 +18,6 @@ public class BlueAI : MonoBehaviour {
         target = go.transform;
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        Movement();
-        {
-            float move = Input.GetAxis("Horizontal");
-
-        }
-    }
-
     /// <summary>
     /// Function that determines the moves of the player
     /// </summary>
