@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public float scoreMax;
 
-    private int modulo = 10;
     // Use this for initialization
     void Start () {
         score = 0;

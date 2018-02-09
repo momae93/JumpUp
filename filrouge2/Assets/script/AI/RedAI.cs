@@ -8,7 +8,6 @@ public class RedAI : MonoBehaviour {
     public float moveSpeed;
     public float jumpHeight;
 
-    GameObject red;
     public GameObject player;
     private Transform playerTransform;
 
@@ -22,7 +21,6 @@ public class RedAI : MonoBehaviour {
     void Start()
     {
         anim = GetComponent<Animator>();
-        red = GetComponent<GameObject>();
         playerTransform = player.transform;
       
         posA = transform.localPosition;

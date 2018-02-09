@@ -5,15 +5,12 @@ using UnityEngine;
 public class RedShoot : MonoBehaviour {
 
     private Transform target;
-    private Transform firepoint;
-    public float fireRate = 0;
 
     public Rigidbody projectile;
     public float speed = 20;
 
 
     private float counter = 1;
-    public float power;
 
  
 
@@ -22,7 +19,6 @@ public class RedShoot : MonoBehaviour {
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         target = go.transform;
         go = GameObject.FindGameObjectWithTag("FirePoint");
-        firepoint = go.transform;
     }
 
     void Update()

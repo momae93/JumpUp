@@ -3,21 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BlueAI : MonoBehaviour {
-    Animator anim;
     public float moveSpeed;
     public float jumpHeight;
-    GameObject red;
-    public GameObject player;
-    private Transform playerTransform;
 
     // Use this for initialization
     void Start()
     {
-        anim = GetComponent<Animator>();
-        red = GetComponent<GameObject>();
-        playerTransform = player.transform;
-
-
     }
     void Update()
     {

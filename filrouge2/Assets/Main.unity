@@ -537,11 +537,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6f6ad37dd9eaa4089aba7e3741b74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0
   projectile: {fileID: 54751956883413060, guid: 4c92bf4582a6a204cbecec9ca8f153c3,
     type: 2}
   speed: 20
-  power: 0
 --- !u!1 &292097026
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +945,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpHeight: 1
-  player: {fileID: 319243266}
 --- !u!212 &345328314
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1016,7 +1013,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345328310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.42, y: 3.86, z: -0.04609}
+  m_LocalPosition: {x: -2.42, y: 24.7, z: -0.04609}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 2071859565}
@@ -1868,7 +1865,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818617162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: -0.04609}
+  m_LocalPosition: {x: 3, y: 6.09, z: -0.04609}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 248751483}
@@ -2973,7 +2970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrayOfGargoyle: []
   player: {fileID: 319243266}
-  delay: 3
+  delay: 10
 --- !u!4 &1938867121
 Transform:
   m_ObjectHideFlags: 0
@@ -3337,11 +3334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6f6ad37dd9eaa4089aba7e3741b74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0
   projectile: {fileID: 54070029949775474, guid: 4c67d37a25fdecf4492ace275484e342,
     type: 2}
   speed: 10
-  power: 0
 --- !u!1 &2124935274
 GameObject:
   m_ObjectHideFlags: 0

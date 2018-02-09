@@ -5,12 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public GameObject player;
-    private Vector3 offset;
     public float speed = 1.0f;
 
     void Start()
     {
-        offset = transform.position - player.transform.position;
     }
 
     void LateUpdate()
