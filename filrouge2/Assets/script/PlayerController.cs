@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -8,9 +9,10 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     public float moveSpeed = 3f;
     public float jumpHeight = 40f;
-    private bool isAlive = true;
+    public bool isAlive = true;
     private float playerScore;
     private Text score;
+    public GameObject gameOverPanel;
 
     #endregion
 
@@ -28,12 +30,38 @@ public class PlayerController : MonoBehaviour {
             float move = Input.GetAxis("Horizontal");
             anim.SetFloat("Speed", move);
         }
+        isDead();
     }
     /// <summary>
     /// Function that determines the moves of the player
     /// </summary>
     /// Need to be optimize
-   void Movement()
+    /// 
+    private void isDead()
+    { 
+        if (isAlive == false)
+            EnablePanel();
+    }
+
+    #region GameOver
+    public void EnablePanel()
+    {
+        Debug.Log("Game Over");
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
+    }
+    // Use this for initialization
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    #endregion
+    void Movement()
     {
         if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
         {

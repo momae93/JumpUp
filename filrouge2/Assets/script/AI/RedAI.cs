@@ -4,53 +4,54 @@ using UnityEngine;
 
 public class RedAI : MonoBehaviour {
     Animator anim;
-    public float moveSpeed = 3f;
-    public float jumpHeight = 100f;
+
+    public float moveSpeed;
+    public float jumpHeight;
+
     GameObject red;
-    public Transform target;
+    public GameObject player;
+    private Transform playerTransform;
+
+    Vector3 posA;
+    Vector3 posB;
+    Vector3 nextPos;
+
+    
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
         red = GetComponent<GameObject>();
-        GameObject go = GameObject.FindGameObjectWithTag("Player");
-        target = go.transform;
-        // Destroy(this.gameObject, 2);
+        playerTransform = player.transform;
+      
+        posA = transform.localPosition;
+        posB = transform.localPosition;
+        posB.y = transform.position.y - 5;
+        posA.y = transform.position.y + 5;
+        nextPos = posB;
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
-        {
-            float move = Input.GetAxis("Horizontal");
-
-        }
     }
 
-
-    /// <summary>
-    /// Function that determines the moves of the player
-    /// </summary>
-    /// Need to be optimize
+   
     void Movement()
     {
-         transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-         
-        
-         if (this.gameObject.transform.position.x > 9)
-         {
+        if (transform.position.x > playerTransform.position.x)
              transform.localRotation = Quaternion.Euler(0, 180, 0);
 
-             Debug.Log("Going left");
-         }
-         if (this.gameObject.transform.position.x < -9)
-         {
-             transform.localRotation = Quaternion.Euler(0, 0, 0);
-             Debug.Log("Going right");
-         }
-        if (this.gameObject.transform.position.y <= (target.transform.position.y + 1)  || this.gameObject.transform.position.y <= (target.transform.position.y))
+        if (transform.position.x < playerTransform.position.x)
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, nextPos, moveSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, nextPos) <= 1)
+            nextPos = nextPos != posA ? posA : posB;
+
+        if (transform.position.y <= (playerTransform.position.y + 1)  || transform.position.y <= (playerTransform.position.y))
             anim.SetBool("attack", true);
         else
             anim.SetBool("attack", false);

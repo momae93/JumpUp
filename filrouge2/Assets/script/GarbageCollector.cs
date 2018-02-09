@@ -12,6 +12,7 @@ public class GarbageCollector : MonoBehaviour {
             Destroy(other.gameObject, 0);
     }
 
+   
     #region GameOver
     public void EnablePanel()
     {
