@@ -10,6 +10,8 @@ TagManager:
   - red
   - FirePoint
   - Wave
+  - platform
+  - gargouilleManager
   layers:
   - Default
   - TransparentFX

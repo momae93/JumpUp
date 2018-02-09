@@ -12,6 +12,13 @@ public class GenerateGargoyle : MonoBehaviour {
     private float z;
     public float delay;
     private float save;
+
+    public float Save
+    {
+        get { return save; }
+        set { save = value; }
+    }
+
     // Use this for initialization
     void Start () {
         arrayOfGargoyle.Add(GameObject.FindGameObjectWithTag("red"));
@@ -33,12 +40,20 @@ public class GenerateGargoyle : MonoBehaviour {
             SpawnGargoyle();
         }
     }
+    public void setDelay(float i)
+    {
+        delay = i;
+    }
 
+    public float getDelay()
+    {
+        return delay;
+    }
     private void SpawnGargoyle()
     {
         GameObject newGargoyle = Instantiate(arrayOfGargoyle[Random.Range(0, arrayOfGargoyle.Count )]) as GameObject;
         x = Random.Range(-9, 9);
-        y = Random.Range(playerTransform.position.y + 4, playerTransform.position.y + 7);
+        y = Random.Range(playerTransform.position.y + 5, playerTransform.position.y + 10);
         z = playerTransform.position.z;
         newGargoyle.transform.position = new Vector3(x, y, z);
     }
