@@ -806,8 +806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eea404b4dcdc9542ab40a3f1673ee53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  jumpHeight: 10
+  moveSpeed: 8
+  jumpHeight: 15
   isAlive: 1
   gameOverPanel: {fileID: 2124935274}
 --- !u!212 &319243271
