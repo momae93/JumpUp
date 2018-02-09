@@ -38,7 +38,7 @@ public class Pause : MonoBehaviour {
 
     public void Quit()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
     public void Audio()

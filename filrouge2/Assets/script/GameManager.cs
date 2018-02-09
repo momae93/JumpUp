@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour {
         level = 0;  
         waveSpeed = 2f;
         bearings = new float[] {75, 175, 300, 500 };
-	}
+        Time.timeScale = 1;
+    }
 	
 	// Update is called once per frame
 	void Update () {

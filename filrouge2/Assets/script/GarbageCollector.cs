@@ -28,7 +28,7 @@ public class GarbageCollector : MonoBehaviour {
 
     public void Quit()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
     #endregion
 }
