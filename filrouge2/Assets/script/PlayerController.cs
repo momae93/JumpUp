@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed = 3f;
     public float jumpHeight = 40f;
     public bool isAlive = true;
-    private float playerScore;
-    private Text score;
     public GameObject gameOverPanel;
 
     #endregion
@@ -19,8 +17,6 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
-        playerScore = 0;
-        setScore();
     }
 	
 	// Update is called once per frame
@@ -77,12 +73,5 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Space))
             transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
-    }
-
-
-    void setScore()
-    {
-        playerScore += 1;
-        score.text += "Score: " + playerScore.ToString();  
     }
 }
