@@ -21,7 +21,6 @@ public class PlatformManager : MonoBehaviour {
 	}
 
     void Update () {
-        Debug.Log("a");
         if (playerTransform.position.y > spawnY - platformOnScreen * platformHeight)
         {
             Debug.Log("Ping");
