@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpHeight: 1
-  target: {fileID: 0}
+  player: {fileID: 1127453488}
 --- !u!212 &125162749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 245432157}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: FirePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 880872331}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: FirePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   jumpHeight: 1
-  target: {fileID: 0}
+  player: {fileID: 1127453488}
 --- !u!212 &904673824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrayOfGargoyle: []
   player: {fileID: 1127453488}
-  delay: 3
+  delay: 10
 --- !u!4 &2107980573
 Transform:
   m_ObjectHideFlags: 0

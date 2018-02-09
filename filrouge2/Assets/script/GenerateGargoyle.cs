@@ -30,8 +30,8 @@ public class GenerateGargoyle : MonoBehaviour {
         }
         else
         {
-            SpawnGargoyle();
             delay = save;
+            SpawnGargoyle();
         }
     }
 
@@ -39,7 +39,7 @@ public class GenerateGargoyle : MonoBehaviour {
     {
         GameObject newGargoyle = Instantiate(arrayOfGargoyle[Random.Range(0, arrayOfGargoyle.Count )]) as GameObject;
         x = Random.Range(-9, 9);
-        y = Random.Range(playerTransform.position.y + 2, playerTransform.position.y + 10);
+        y = Random.Range(playerTransform.position.y + 2, playerTransform.position.y + 5);
         z = playerTransform.position.z;
         newGargoyle.transform.position = new Vector3(x, y, z);
     }
