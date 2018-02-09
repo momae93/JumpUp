@@ -11,21 +11,23 @@ public class PlayerController : MonoBehaviour {
     public float jumpHeight = 40f;
     public bool isAlive = true;
     public GameObject gameOverPanel;
+    private float move;
+    private bool isGrounded;
 
     #endregion
 
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
+        move = 0;
+        isGrounded = true;
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         Movement();
-        {
-            float move = Input.GetAxis("Horizontal");
-            anim.SetFloat("Speed", move);
-        }
+        anim.SetFloat("Speed", move);
+    
         isDead();
     }
     /// <summary>
@@ -57,6 +59,21 @@ public class PlayerController : MonoBehaviour {
         Application.Quit();
     }
     #endregion
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "platform")
+        {
+            isGrounded = true;
+        }
+    }
+
+    /*void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "platform")
+        {
+            isGrounded = false;
+        }
+    }*/
     void Movement()
     {
         if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
@@ -64,14 +81,21 @@ public class PlayerController : MonoBehaviour {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
             anim.SetBool("Left", true);
+            move = -1;
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
             anim.SetBool("Left", false);
+            move = 1;
         }
-        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Space))
-            transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
+        else
+            move = 0;
+        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Space) && isGrounded)
+        {
+                transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
+        }
+            
     }
 }
