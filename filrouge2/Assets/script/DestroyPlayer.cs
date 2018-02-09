@@ -1,16 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DestroyPlayer : MonoBehaviour {
-    void OnCollisionEnter(Collision col)
+    public GameObject gameOverPanel;
+    private void OnTriggerEnter(Collider other)
     {
-        if (col.gameObject.tag == "Player")
-        {
-            GameObject player = GameObject.Find("Player (1)");
-            PlayerController life = player.GetComponent<PlayerController>();
-        }
+        if (other.gameObject.tag == "Player")
+            EnablePanel();
         else
-            Destroy(this.gameObject);
+            Destroy(other.gameObject, 0);
     }
+
+    #region GameOver
+    public void EnablePanel()
+    {
+        Debug.Log("Game Over");
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
+    }
+    // Use this for initialization
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    #endregion
 }

@@ -24,11 +24,6 @@ public class GameManager : MonoBehaviour {
         UpdateScore();
     }
 
-    void CheckPlayer()
-    {
-
-    }
-
     void UpdateScore()
     {
         float currentY = player.transform.position.y;
@@ -43,7 +38,7 @@ public class GameManager : MonoBehaviour {
         if (scoreMax > bearings[level] && level < 3)
         {
             level += 1;
-            Debug.Log("Difficulty up :" + level);
+            PlatformManager.Notify();
             FloatingTextController.Initialize();
             FloatingTextController.CreateFloatingText("Level :" + level);
         }
