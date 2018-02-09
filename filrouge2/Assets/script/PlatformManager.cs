@@ -8,8 +8,8 @@ public class PlatformManager : MonoBehaviour {
     public GameObject player;
 
     private float spawnY = -2f;
-    private float platformHeight = 2.0f;
-    private int platformOnScreen = 4;
+    private float platformHeight = 3.0f;
+    private int platformOnScreen = 5;
     private Transform playerTransform;
     private GameObject lastPlatform;
 
@@ -21,8 +21,12 @@ public class PlatformManager : MonoBehaviour {
 	}
 
     void Update () {
+        Debug.Log("a");
         if (playerTransform.position.y > spawnY - platformOnScreen * platformHeight)
+        {
+            Debug.Log("Ping");
             SpawnPlatForm();
+        }
 	}
 
     private void SpawnPlatForm()
@@ -40,12 +44,12 @@ public class PlatformManager : MonoBehaviour {
 
 	private void Spawn(float x, float y, float z = 0)
 	{
-		GameObject newPlatform = Instantiate(BasicPlatforms[Random.Range(0, 2)]) as GameObject;
+		GameObject newPlatform = Instantiate(BasicPlatforms[Random.Range(0, 3)]) as GameObject;
 		if (Random.Range (0, 2) == 1)
 			SetMovingBehavior (ref newPlatform, 5);
 		newPlatform.transform.position = new Vector3(x, y, z);
 		lastPlatform = newPlatform;
-		spawnY += 2f;
+		spawnY += 3f;
 	}
 
 	private void SetMovingBehavior(ref GameObject gameObject, int border, int speed = 2)

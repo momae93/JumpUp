@@ -22,7 +22,7 @@ public class GarbageCollector : MonoBehaviour {
     // Use this for initialization
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()

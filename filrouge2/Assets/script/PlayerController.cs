@@ -3,12 +3,16 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
+    #region Attributes
+
     Animator anim;
     public float moveSpeed = 3f;
     public float jumpHeight = 40f;
     private bool isAlive = true;
     private float playerScore;
     private Text score;
+
+    #endregion
 
     // Use this for initialization
     void Start () {
