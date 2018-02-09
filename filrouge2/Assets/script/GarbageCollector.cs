@@ -1,18 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GarbageCollector : MonoBehaviour {
 
+    public GameObject gameOverPanel;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            GameObject player = GameObject.Find("Player (1)");
-            PlayerController life = player.GetComponent<PlayerController>();
-            life.alive = false;
-        }
+            EnablePanel();
         else
             Destroy(other.gameObject, 0);
     }
+
+    #region GameOver
+    public void EnablePanel()
+    {
+        Debug.Log("Game Over");
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
+    }
+    // Use this for initialization
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    #endregion
 }
