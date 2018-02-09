@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
             FloatingTextController.CreateFloatingText("Level :" + level);
             GameObject water = GameObject.Find("Water");
             WavesController wave = water.GetComponent<WavesController>();
-            wave.WaveSpeed += 0.5f;
+            wave.WaveSpeed += 1f;
             GameObject gargouille = GameObject.Find("GargoyleManager");
             GenerateGargoyle gargoyle = gargouille.GetComponent<GenerateGargoyle>();
             gargoyle.Save -= 0.5f; 
