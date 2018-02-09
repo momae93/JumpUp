@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 
     Animator anim;
     public float moveSpeed = 3f;
-    public float jumpHeight = 100f;
+    public float jumpHeight = 40f;
     public bool alive = true;
     private float playerScore;
     private Text score;

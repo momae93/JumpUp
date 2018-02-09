@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     private float[] bearings;
-
     public float score;
     public int level;
     public float waveSpeed;
@@ -23,6 +22,11 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         UpdateScore();
+    }
+
+    void CheckPlayer()
+    {
+
     }
 
     void UpdateScore()
