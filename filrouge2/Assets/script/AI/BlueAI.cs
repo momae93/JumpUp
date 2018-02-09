@@ -41,10 +41,5 @@ public class BlueAI : MonoBehaviour {
 
         if (transform.position.x < -9)
             transform.localRotation = Quaternion.Euler(0, 180, 0);   
-
-        if (transform.position.y <= (playerTransform.position.y + 1) || transform.position.y <= (playerTransform.position.y))
-            anim.SetBool("attack", true);
-        else
-            anim.SetBool("attack", false);
     }
 }
