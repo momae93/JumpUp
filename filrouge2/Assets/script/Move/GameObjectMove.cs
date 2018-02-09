@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameObjectMove : MonoBehaviour {
 	public int speed = 2;
@@ -10,6 +8,11 @@ public class GameObjectMove : MonoBehaviour {
 	private Vector3 nextPosition;
 	private Vector3 begin;
 	private Vector3 end;
+
+    public static void Instanciate()
+    {
+        
+    }
 
 	void Start () {
 		begin = new Vector3 (leftLimit, transform.position.y);

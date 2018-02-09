@@ -18,7 +18,6 @@ public class GenerateGargoyle : MonoBehaviour {
         arrayOfGargoyle.Add(GameObject.FindGameObjectWithTag("blue"));
         playerTransform = player.transform;
         save = delay ;
-      
     }
 	
 	// Update is called once per frame
@@ -26,7 +25,7 @@ public class GenerateGargoyle : MonoBehaviour {
         if (delay > 0)
         {
             delay -= Time.deltaTime;
-            return;
+            //return;
         }
         else
         {
@@ -39,7 +38,7 @@ public class GenerateGargoyle : MonoBehaviour {
     {
         GameObject newGargoyle = Instantiate(arrayOfGargoyle[Random.Range(0, arrayOfGargoyle.Count )]) as GameObject;
         x = Random.Range(-9, 9);
-        y = Random.Range(playerTransform.position.y + 2, playerTransform.position.y + 5);
+        y = Random.Range(playerTransform.position.y + 4, playerTransform.position.y + 7);
         z = playerTransform.position.z;
         newGargoyle.transform.position = new Vector3(x, y, z);
     }
