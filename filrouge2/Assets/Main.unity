@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpHeight: 12
+  jumpHeight: 50
   isAlive: 1
   gameOverPanel: {fileID: 2124935274}
 --- !u!212 &319243271
