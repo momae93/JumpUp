@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
     public Text highScore;
     void Start()
     {
-        highScore.text = "Highscore : " + (int) PlayerPrefs.GetFloat("HighScore");
+        highScore.text = "Highscore : " + (int)PlayerPrefs.GetFloat("HighScore");
     }
     
     public void Play()
