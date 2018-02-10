@@ -2708,6 +2708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 319243266}
+  offset: 3
   speed: 2
 --- !u!1 &1882719564
 GameObject:
@@ -2952,6 +2953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 319243266}
+  offset: 0
   speed: 1
 --- !u!1 &2037716909
 GameObject:
