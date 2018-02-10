@@ -12,8 +12,7 @@ public class PlatformManager : MonoBehaviour {
     private float platformHeight = 3.0f;
     private int platformOnScreen = 5;
     private Transform playerTransform;
-    private GameObject lastPlatform;
-    private int lastSize;
+    private Platform lastPlatform;
 
     public static void Notify()
     {
@@ -34,36 +33,37 @@ public class PlatformManager : MonoBehaviour {
 
     public void Create()
     {
-        GameObject platform = SpawnPlatForm();
+        Platform platform = SpawnPlatForm();
         switch (level)
         {
+            case 0:
+                break;
             case 1:
                 if (Random.Range(0, 2) == 1)
-                    SetFallingBehavior(ref platform);
+                    platform.SetFallingBehavior();
                 break;
             case 2:
                 int rdn = Random.Range(0, 3);
-                if (Random.Range(0, 3) == 1)
-                    SetMovingBehavior(ref platform, 5);
-                if (Random.Range(0, 3) == 2)
-                    SetMovingBehavior(ref platform, 5);
-                break;
-            case 3:
-                if (Random.Range(0, 2) == 0)
-                    SetMovingBehavior(ref platform, 5);
-                if (Random.Range(0, 2) == 1)
-                    SetMovingBehavior(ref platform, 5);
+                if (rdn == 1)
+                    platform.SetFallingBehavior();
+                if (rdn == 2)
+                    platform.SetMovingBehavior(lastPlatform.Position.x, level);
                 break;
             default:
+                int rdn2 = Random.Range(0, 2);
+                if (rdn2 == 0)
+                    platform.SetFallingBehavior();
+                if (rdn2 == 1)
+                    platform.SetMovingBehavior(lastPlatform.Position.x, level);
                 break;
         }
     }
 
-    private GameObject SpawnPlatForm()
+    private Platform SpawnPlatForm()
     {
-		float leftPos = lastPlatform.transform.position.x - lastSize / 2;
-		float rightPos = lastPlatform.transform.position.x + lastSize / 2;
-		float[] tab = new float[] {	rightPos + 2f,	leftPos - 2f };
+        float leftPos = lastPlatform.Position.x - lastPlatform.Size / 2;
+        float rightPos = lastPlatform.Position.x + lastPlatform.Size / 2;
+        float[] tab = new float[] { rightPos + 2f, leftPos - 2f };
         if (leftPos + 10 < 2f && 10 - (rightPos) < 2f)
             return Spawn(tab[Random.Range(0, 2)], spawnY);
         else if (leftPos + 10 < 3f)
@@ -71,35 +71,16 @@ public class PlatformManager : MonoBehaviour {
         return Spawn(tab[1], spawnY);
     }
 
-	private GameObject Spawn(float x, float y, float z = 0)
-	{
-        int rdn = Random.Range(0, 3);
-        GameObject newPlatform = Instantiate(basicPlatforms[rdn]) as GameObject;
-        lastSize = GetSize(rdn);
-        newPlatform.transform.position = new Vector3(x, y, z);
-		lastPlatform = newPlatform;
-		spawnY += 3f;
-        return newPlatform;
-	}
-
-	private void SetMovingBehavior(ref GameObject gameObject, int border, int speed = 2)
-	{
-		gameObject.AddComponent<GameObjectMove>();
-		gameObject.GetComponent<GameObjectMove>().leftLimit = - border;
-		gameObject.GetComponent<GameObjectMove>().rightLimit = border;
-        gameObject.GetComponent<GameObjectMove>().speed = speed;
-    }
-
-    private void SetFallingBehavior(ref GameObject gameObject)
+    private Platform Spawn(float x, float y, float z = 0)
     {
-        Debug.Log("Affected");
-        gameObject.AddComponent<FallingPlatform>();
-        gameObject.GetComponent<FallingPlatform>().rg = gameObject.GetComponent<Rigidbody>();
+        int rdn = Random.Range(0, 3);
+        Platform newPlatform = new Platform(basicPlatforms[rdn], GetSize(rdn));
+        newPlatform.Position = new Vector3(x, y, z);
+        lastPlatform = newPlatform;
+        spawnY += 3f;
+        return newPlatform;
     }
 
-    /// <summary>
-    /// G
-    /// </summary>
     private int GetSize(int prefab)
     {
         if (prefab == 0)
