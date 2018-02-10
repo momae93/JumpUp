@@ -10,12 +10,13 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public float scoreMax;
     private float time;
-    
+
+
 
     // Use this for initialization
     void Start () {
         score = 0;
-        level = 0;  
+        level = 1;  
         waveSpeed = 2f;
         bearings = new float[] {75, 175, 300, 500 };
         Time.timeScale = 1;
@@ -24,14 +25,15 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        score += Time.deltaTime * level;
         time += Time.deltaTime;
         UpdateScore();
+        isDead();
     }
 
     void UpdateScore()
     {
        float currentY = player.transform.position.y;
-       // if (currentY > scoreMax)
        if (time >= 15)
         {
             scoreMax = currentY;
@@ -41,8 +43,6 @@ public class GameManager : MonoBehaviour {
     }
     void CheckLevel(float playerHeight)
     {
-      //  if (scoreMax > bearings[level] && level < bearings.Length)
-       // {
             level += 1;
             PlatformManager.Notify();
             FloatingTextController.Initialize();
@@ -53,7 +53,25 @@ public class GameManager : MonoBehaviour {
             GameObject gargouille = GameObject.Find("GargoyleManager");
             GenerateGargoyle gargoyle = gargouille.GetComponent<GenerateGargoyle>();
             gargoyle.Save -= 0.5f; 
+    }
 
-       // }
+    private void isDead()
+    {
+        GameObject Player = GameObject.Find("Player");
+        PlayerController player = Player.GetComponent<PlayerController>();
+        bool isAlive = player.isAlive;
+
+        if (isAlive == false)
+            if (PlayerPrefs.GetFloat("HighScore") < score)
+                PlayerPrefs.SetFloat("HighScore",score);
+        PlayerPrefs.SetFloat("Score", score);
+        scoreMax = PlayerPrefs.GetFloat("HighScore");    
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 30), "Score: " + (int)(score));
+
+        GUI.Label(new Rect(100, 10, 100, 30), "HighScore: " + (int)(scoreMax));
     }
 }

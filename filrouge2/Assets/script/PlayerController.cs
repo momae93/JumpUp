@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        highscore = new List<float>();
         anim = GetComponent<Animator>();
         move = 0;
         isGrounded = true;
@@ -30,7 +31,6 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
         Movement();
         anim.SetFloat("Speed", move);
-    
         isDead();
     }
     /// <summary>
@@ -42,7 +42,8 @@ public class PlayerController : MonoBehaviour {
     {
         GameObject Scores = GameObject.Find("Player");
         Score scores = Scores.GetComponent<Score>();
-        highscore.Add(scores.score);
+        float x = scores.scoreValue;
+        highscore.Add(x);
         if (isAlive == false)
             EnablePanel();
     }
