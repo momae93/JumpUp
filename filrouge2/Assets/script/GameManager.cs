@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
     {
        float currentY = player.transform.position.y;
        // if (currentY > scoreMax)
-       if (time >= 15)
+       if (time >= 10)
         {
             scoreMax = currentY;
             CheckLevel(currentY);
