@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public float scoreMax;
     private float time;
+    
 
     // Use this for initialization
     void Start () {
@@ -24,7 +25,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         time += Time.deltaTime;
-        Debug.Log("pooo : " + time);
         UpdateScore();
     }
 

@@ -7,6 +7,14 @@ public class Score : MonoBehaviour {
     private float playerScore = 0;
     private int difficulty = 1;
     private int modulo = 10;
+   
+
+    public float score
+    {
+        get { return playerScore; }
+        set { playerScore = value; }
+    }
+
     // Use this for initialization
     void Update()
     {
