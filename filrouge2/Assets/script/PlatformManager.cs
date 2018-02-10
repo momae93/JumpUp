@@ -42,14 +42,19 @@ public class PlatformManager : MonoBehaviour {
                     SetFallingBehavior(ref platform);
                 break;
             case 2:
-                if (Random.Range(0, 2) == 1)
+                int rdn = Random.Range(0, 3);
+                if (Random.Range(0, 3) == 1)
+                    SetMovingBehavior(ref platform, 5);
+                if (Random.Range(0, 3) == 2)
                     SetMovingBehavior(ref platform, 5);
                 break;
             case 3:
-                Debug.Log("Level " + level);
+                if (Random.Range(0, 2) == 0)
+                    SetMovingBehavior(ref platform, 5);
+                if (Random.Range(0, 2) == 1)
+                    SetMovingBehavior(ref platform, 5);
                 break;
             default:
-                Debug.Log("Level " + level);
                 break;
         }
     }
@@ -58,25 +63,17 @@ public class PlatformManager : MonoBehaviour {
     {
 		float leftPos = lastPlatform.transform.position.x - lastSize / 2;
 		float rightPos = lastPlatform.transform.position.x + lastSize / 2;
-        Debug.Log("Left : " + leftPos.ToString());
-        Debug.Log("Right : " + rightPos.ToString());
 		float[] tab = new float[] {	rightPos + 2f,	leftPos - 2f };
         if (leftPos + 10 < 2f && 10 - (rightPos) < 2f)
-        {
-            Debug.Log("Left right");
             return Spawn(tab[Random.Range(0, 2)], spawnY);
-        }
         else if (leftPos + 10 < 3f)
-        { 
-            Debug.Log("Left");
             return Spawn(tab[0], spawnY);
-        }
         return Spawn(tab[1], spawnY);
     }
 
 	private GameObject Spawn(float x, float y, float z = 0)
 	{
-        int rdn = Random.RandomRange(0, 3);
+        int rdn = Random.Range(0, 3);
         GameObject newPlatform = Instantiate(basicPlatforms[rdn]) as GameObject;
         lastSize = GetSize(rdn);
         newPlatform.transform.position = new Vector3(x, y, z);
@@ -95,7 +92,9 @@ public class PlatformManager : MonoBehaviour {
 
     private void SetFallingBehavior(ref GameObject gameObject)
     {
+        Debug.Log("Affected");
         gameObject.AddComponent<FallingPlatform>();
+        gameObject.GetComponent<FallingPlatform>().rg = gameObject.GetComponent<Rigidbody>();
     }
 
     /// <summary>

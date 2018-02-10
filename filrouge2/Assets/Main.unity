@@ -511,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &247046260
 Transform:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ Transform:
   - {fileID: 818617168}
   - {fileID: 345328316}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &248751482
 GameObject:
@@ -913,7 +913,7 @@ Transform:
   m_Children:
   - {fileID: 15518574}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345328310
 GameObject:
@@ -1680,7 +1680,7 @@ Transform:
   - {fileID: 1188336498}
   - {fileID: 1938867121}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818617162
 GameObject:
@@ -2385,11 +2385,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1413769021}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1889994032}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470198742
@@ -2624,8 +2624,8 @@ GameObject:
   - component: {fileID: 1806561384}
   - component: {fileID: 1806561387}
   - component: {fileID: 1806561386}
-  - component: {fileID: 1806561385}
   - component: {fileID: 1806561388}
+  - component: {fileID: 1806561385}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -2652,7 +2652,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1806561383}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1806561386
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2812,8 +2812,9 @@ Transform:
   - {fileID: 1316244792}
   - {fileID: 622584859}
   - {fileID: 1470198746}
+  - {fileID: 1413769024}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938867119
 GameObject:

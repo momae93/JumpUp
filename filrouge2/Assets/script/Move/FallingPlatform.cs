@@ -3,25 +3,19 @@ using System.Collections;
 
 public class FallingPlatform : MonoBehaviour {
 
-    Rigidbody rigidbody;
-	void Start () {
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-    }
-
+    public Rigidbody rg;
+     
     void OnCollisionEnter(Collision col)
     {
+        Debug.Log("Collision detected");
         if (col.gameObject.tag == "Player")
-        {
-            Debug.Log("A");
-            Fall();
-        }
-
+            StartCoroutine(Fall());
     }
 
     IEnumerator Fall()
     {
-        yield return new WaitForSeconds(2);
-        rigidbody.isKinematic = false;
+        yield return new WaitForSeconds(1);
+        rg.isKinematic = false;
         yield return 0;
     }
 }
