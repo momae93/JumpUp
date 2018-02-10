@@ -1,13 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GarbageCollector : MonoBehaviour {
 
     public GameObject gameOverPanel;
+    public Text highScore;
+
+    void Start()
+    {
+        highScore.text = "Score : " + (int)PlayerPrefs.GetFloat("Score") + " " + "Highscore : " + (int)PlayerPrefs.GetFloat("HighScore");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
+        {   
+            GameObject Player = GameObject.Find("Player");
+            PlayerController player = Player.GetComponent<PlayerController>();
+            player.isAlive = false;
             EnablePanel();
+        }
+            
         else
             Destroy(other.gameObject, 0);
     }

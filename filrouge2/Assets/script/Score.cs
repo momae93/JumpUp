@@ -7,6 +7,20 @@ public class Score : MonoBehaviour {
     private float playerScore = 0;
     private int difficulty = 1;
     private int modulo = 10;
+    private List<float> highscore;
+
+
+    public float scoreValue
+    {
+        get { return playerScore; }
+        set { playerScore = value; }
+    }
+
+    private void Start()
+    {
+        highscore = new List<float>();
+    }
+
     // Use this for initialization
     void Update()
     {
@@ -21,9 +35,7 @@ public class Score : MonoBehaviour {
         }
     }
 
-    void OnGUI()
-    {
+   
 
-        GUI.Label(new Rect(10, 10, 100, 30), "Score: " + (int)(playerScore));
-    }
+   
 }

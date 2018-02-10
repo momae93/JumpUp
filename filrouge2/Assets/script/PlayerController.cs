@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
@@ -13,11 +15,13 @@ public class PlayerController : MonoBehaviour {
     public GameObject gameOverPanel;
     private float move;
     private bool isGrounded;
+    private List<float> highscore;
 
     #endregion
 
     // Use this for initialization
     void Start () {
+        highscore = new List<float>();
         anim = GetComponent<Animator>();
         move = 0;
         isGrounded = true;
@@ -27,7 +31,6 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
         Movement();
         anim.SetFloat("Speed", move);
-    
         isDead();
     }
     /// <summary>
@@ -36,7 +39,11 @@ public class PlayerController : MonoBehaviour {
     /// Need to be optimize
     /// 
     private void isDead()
-    { 
+    {
+        GameObject Scores = GameObject.Find("Player");
+        Score scores = Scores.GetComponent<Score>();
+        float x = scores.scoreValue;
+        highscore.Add(x);
         if (isAlive == false)
             EnablePanel();
     }
