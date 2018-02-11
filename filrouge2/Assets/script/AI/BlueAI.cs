@@ -18,10 +18,10 @@ public class BlueAI : MonoBehaviour {
     /// Function that determines the moves of the player
     /// </summary>
     /// Need to be optimize
-   /* void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision col)
     {
         transform.localRotation = transform.localRotation != Quaternion.Euler(0, 0, 0) ? Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0);
-    }*/
+    }
 
     void Movement()
     {

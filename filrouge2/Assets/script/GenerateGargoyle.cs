@@ -27,7 +27,6 @@ public class GenerateGargoyle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(arrayOfGargoyle.Count);
         if (delay > 0)
         {
             delay -= Time.deltaTime;
@@ -50,7 +49,7 @@ public class GenerateGargoyle : MonoBehaviour {
     }
     private void SpawnGargoyle()
     {
-        GameObject newGargoyle = Instantiate(arrayOfGargoyle[Random.Range(0, arrayOfGargoyle.Count - 1)]) as GameObject;
+        GameObject newGargoyle = Instantiate(arrayOfGargoyle[Random.Range(0, arrayOfGargoyle.Count)]) as GameObject;
         x = Random.Range(-9, 9);
         y = Random.Range(playerTransform.position.y + 5, playerTransform.position.y + 10);
         z = playerTransform.position.z;
